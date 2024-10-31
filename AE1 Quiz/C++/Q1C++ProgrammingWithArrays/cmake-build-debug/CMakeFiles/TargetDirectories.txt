@@ -1,3 +1,0 @@
-C:/Users/seanb/Documents/Northeastern-GE1501-Cornerstone-of-Engineering-2/AE1 Quiz/C++/Q1C++ProgrammingWithArrays/cmake-build-debug/CMakeFiles/Q1C__ProgrammingWithArrays.dir
-C:/Users/seanb/Documents/Northeastern-GE1501-Cornerstone-of-Engineering-2/AE1 Quiz/C++/Q1C++ProgrammingWithArrays/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/seanb/Documents/Northeastern-GE1501-Cornerstone-of-Engineering-2/AE1 Quiz/C++/Q1C++ProgrammingWithArrays/cmake-build-debug/CMakeFiles/rebuild_cache.dir
