@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/seanb/Documents/Northeastern-EECE2160-Embedded-Design/Code/C++/HW5/cmake-build-debug"
+			"value" : "c:/Users/seanb/Documents/Northeastern-EECE2160-Embedded-Design/Code/C++/HW5/Problem 1/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/seanb/Documents/Northeastern-EECE2160-Embedded-Design/Code/C++/HW5/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/seanb/Documents/Northeastern-EECE2160-Embedded-Design/Code/C++/HW5/Problem 1/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/seanb/Documents/Northeastern-EECE2160-Embedded-Design/Code/C++/HW5"
+			"value" : "C:/Users/seanb/Documents/Northeastern-EECE2160-Embedded-Design/Code/C++/HW5/Problem 1"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1279,7 +1279,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/seanb/Documents/Northeastern-EECE2160-Embedded-Design/Code/C++/HW5/cmake-build-debug"
+			"value" : "C:/Users/seanb/Documents/Northeastern-EECE2160-Embedded-Design/Code/C++/HW5/Problem 1/cmake-build-debug"
 		},
 		{
 			"name" : "HW5_IS_TOP_LEVEL",
@@ -1303,7 +1303,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/seanb/Documents/Northeastern-EECE2160-Embedded-Design/Code/C++/HW5"
+			"value" : "C:/Users/seanb/Documents/Northeastern-EECE2160-Embedded-Design/Code/C++/HW5/Problem 1"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
