@@ -1,3 +1,0 @@
-C:/Users/seanb/OneDrive/Desktop/Extra/Coding/C++/Cornerstone2/C++Assignment01Array/cmake-build-debug/CMakeFiles/C__Assignment01Array.dir
-C:/Users/seanb/OneDrive/Desktop/Extra/Coding/C++/Cornerstone2/C++Assignment01Array/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/seanb/OneDrive/Desktop/Extra/Coding/C++/Cornerstone2/C++Assignment01Array/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,3 +1,0 @@
-C:/Users/seanb/OneDrive/Desktop/Extra/Coding/C++/Cornerstone2/gradeCalculator/cmake-build-debug/CMakeFiles/gradeCalculator.dir
-C:/Users/seanb/OneDrive/Desktop/Extra/Coding/C++/Cornerstone2/gradeCalculator/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/seanb/OneDrive/Desktop/Extra/Coding/C++/Cornerstone2/gradeCalculator/cmake-build-debug/CMakeFiles/rebuild_cache.dir

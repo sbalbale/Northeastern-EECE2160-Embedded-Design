@@ -1,3 +1,0 @@
-C:/Users/seanb/OneDrive/Desktop/Extra/Coding/C++/Cornerstonr2/factorial/cmake-build-debug/CMakeFiles/factorial.dir
-C:/Users/seanb/OneDrive/Desktop/Extra/Coding/C++/Cornerstonr2/factorial/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/seanb/OneDrive/Desktop/Extra/Coding/C++/Cornerstonr2/factorial/cmake-build-debug/CMakeFiles/rebuild_cache.dir

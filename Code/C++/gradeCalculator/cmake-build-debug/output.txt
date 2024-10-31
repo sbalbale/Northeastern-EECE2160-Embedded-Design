@@ -1,2 +1,0 @@
-The number of students in class: 30
-The percentage of the students who failed this course is: 33.3333%
