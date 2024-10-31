@@ -1,4 +1,13 @@
-// main.cpp
+/**
+ * 
+ * main.cpp
+ * 
+ * Generates an array of 10 random integer numbers between 0 and 99, 
+ * prints the original array, sorts the array in ascending order, 
+ * and prints the sorted array.
+ * 
+ */
+
 
 #include <iostream>
 #include <cmath>
