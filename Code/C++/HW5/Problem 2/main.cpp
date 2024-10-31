@@ -1,8 +1,7 @@
-// main.cpp
-
 #include <iostream>
-#include <cmath>
-#include <time.h>
+#include <string>
+#include <algorithm>
+#include <ctime>
 
 using namespace std;
 
@@ -12,35 +11,30 @@ using namespace std;
  * @param arr The array to be printed.
  * @param size The size of the array.
  */
-// Prints the elements of an array.
-void PrintArray(int arr[], int size){
-    // Print the opening bracket for the array
-    cout << "Array: [";
-    // Iterate over each element in the array
-    for (int i = 0; i < size; i++){
-        // Print the current element followed by a space
-        cout << arr[i] << " ";
+void PrintArray(const string arr[], int size) {
+    cout << "Array: ["; // Print the opening bracket for the array
+    for (int i = 0; i < size; i++) { // Loop through each element of the array
+        cout << arr[i] << " "; // Print each element followed by a space
     }
-    // Print the closing bracket for the array and a newline
-    cout << "]" << endl;
+    cout << "]" << endl; // Print the closing bracket and end the line
 }
 
 /**
- * @brief Fills an array with random integers between 0 and 99.
+ * @brief Fills an array with random strings.
  *
- * @param arr The array to be filled with random numbers.
+ * @param arr The array to be filled with random strings.
  * @param size The size of the array.
- * @return int* Pointer to the array filled with random numbers.
  */
-// Fills an array with random integers between 0 and 99.
-int* RandomArray(int* arr, int size){
-    // Iterate over each element in the array
-    for (int i = 0; i < size; i++){
-        // Assign a random integer between 0 and 99 to the current element
-        arr[i] = rand() % 100;
+void RandomArray(string arr[], int size) {
+    const string charset = "abcdefghijklmnopqrstuvwxyz"; // Define the set of characters to use for generating random strings
+    srand(time(nullptr)); // Seed the random number generator with the current time
+    for (int i = 0; i < size; i++) {
+        string str; // Initialize an empty string to hold the random string
+        for (int j = 0; j < 5; j++) {
+            str += charset[rand() % charset.size()]; // Append a random character from the charset to the string
+        }
+        arr[i] = str; // Assign the generated random string to the current array element
     }
-    // Return the array filled with random numbers
-    return arr;
 }
 
 /**
@@ -48,21 +42,16 @@ int* RandomArray(int* arr, int size){
  *
  * @param arr The array to be sorted.
  * @param size The size of the array.
- * @return int* Pointer to the sorted array.
  */
-int* SortArray(int* arr, int size){
-    // Iterate over each element in the array except the last one
-    for (int i = 0; i < size - 1; i++){
-        // Iterate over the array up to the unsorted portion
-        for (int j = 0; j < size - i - 1; j++){
-            // If the current element is greater than the next element, swap them
-            if (arr[j] > arr[j + 1]){
-                swap(arr[j], arr[j + 1]);
+
+void SortArray(string arr[], int size) {
+    for (int i = 0; i < size - 1; i++) { // Loop through each element of the array except the last one
+        for (int j = 0; j < size - i - 1; j++) { // Loop through the array up to the unsorted portion
+            if (arr[j] > arr[j + 1]) { // If the current element is greater than the next element
+                swap(arr[j], arr[j + 1]); // Swap the elements
             }
         }
     }
-    // Return the sorted array
-    return arr;
 }
 
 /**
@@ -70,19 +59,18 @@ int* SortArray(int* arr, int size){
  *
  * Initializes the random number generator with the current time.
  * Creates an array of size 10.
- * Fills the array with random numbers and prints it.
+ * Fills the array with random strings and prints it.
  * Sorts the array and prints the sorted array.
  *
  * @return int Exit status of the program.
  */
 int main() {
-    srand(time(nullptr)); // Seed the random number generator with the current time
-    int size = 10; // Define the size of the array
-    int arr[size]; // Declare an array of integers with the specified size
+    const int size = 10; // Define the size of the array
+    string arr[size]; // Declare an array of strings
     cout << "The Random Array:" << endl; // Print a message indicating the random array will be displayed
-    RandomArray(arr, size); // Fill the array with random numbers
+    RandomArray(arr, size); // Fill the array with random strings
     PrintArray(arr, size); // Print the random array
     cout << "The Sorted Array:" << endl; // Print a message indicating the sorted array will be displayed
-    SortArray(arr, size); // Sort the array using bubble sort
+    SortArray(arr, size); // Sort the array
     PrintArray(arr, size); // Print the sorted array
 }
