@@ -17,8 +17,6 @@ const unsigned int LEDR_BASE 		= 0x00000000;  // Leds offset
 const unsigned int SW_BASE 			= 0x00000040;  // Switches offset
 const unsigned int KEY_BASE 		= 0x00000050;  // Push buttons offset
 
-count=0//counter
-
 /** 
  * Write a 4-byte value at the specified general-purpose I/O location. 
  * 
@@ -109,6 +107,24 @@ void Write1Led(char *pBase, int ledNum, bool state) {
 	WriteAllLeds(pBase, curLeds);
 }
 
+// User Added Functions
+// Secton 4 - Interfacing with Push Buttons
+int PushButtonGet(char *pBase) {
+	switch (RegisterRead(pBase, KEY_BASE) & 0xFF) {
+		case 0x1:
+			return 0;
+		case 0x2:
+			return 1;
+		case 0x4:
+			return 2;
+		case 0x8:
+			return 3;
+		default:
+			return -1;
+	}
+}
+
+
 
 int main() 
 { 
@@ -129,4 +145,46 @@ int main()
 	}
 	// Done
 	Finalize(pBase, fd); 
+
+
+	
+	// User Added Functions
+	// Secton 4 - Interfacing with Push Buttons
+	int counter = ReadAllSwitches(pBase);
+	WriteAllLeds(pBase, counter);
+
+	int lastButtonState = -1;
+
+	while (true) {
+		int buttonState = PushButtonGet(pBase);
+		if (buttonState != lastButtonState) {
+			lastButtonState = buttonState;
+			switch (buttonState) {
+				case 0:
+				// increment 1
+					counter++;
+					break;
+				case 1:
+				// decrement 1
+					counter--;
+					break;
+				case 2:
+				// shift right
+					counter = counter >> 1;
+					break;
+				case 3:
+				// shift left
+					counter = counter << 1;
+					break;
+				case -1:
+				// set to the value of the switches
+					counter = ReadAllSwitches(pBase);
+					break;
+			}
+		}
+		WriteAllLeds(pBase, counter);
+	}
+
+
+
 }

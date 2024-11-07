@@ -1,5 +1,12 @@
 {
     "files.associations": {
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "limits": "cpp",
+        "algorithm": "cpp",
+        "optional": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp",
+        "xlocmon": "cpp",
+        "xtr1common": "cpp"
     }
 }
