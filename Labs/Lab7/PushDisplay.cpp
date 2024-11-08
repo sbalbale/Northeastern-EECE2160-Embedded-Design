@@ -30,6 +30,7 @@ const unsigned int HEX5_HEX4_BASE = 0x00000030; // 7-segment displays offset
  */
 void RegisterWrite(char *pBase, unsigned int reg_offset, int value)
 {
+    // Write the value to the register at the specified offset from the base address
     *(volatile unsigned int *)(pBase + reg_offset) = value;
     // volatile prevents the compiler from optimizing code
 }
@@ -43,6 +44,7 @@ void RegisterWrite(char *pBase, unsigned int reg_offset, int value)
  */
 int RegisterRead(char *pBase, unsigned int reg_offset)
 {
+    // Read the value from the register at the specified offset from the base address
     return *(volatile unsigned int *)(pBase + reg_offset);
 }
 
@@ -59,21 +61,21 @@ char *Initialize(int *fd)
 {
     // Open /dev/mem to give access to physical addresses
     *fd = open("/dev/mem", (O_RDWR | O_SYNC));
-    if (*fd == -1) //  check for errors in openning /dev/mem
+    if (*fd == -1) // Check for errors in opening /dev/mem
     {
         cout << "ERROR: could not open /dev/mem..." << endl;
-        exit(1);
+        exit(1); // Exit the program with an error status
     }
 
     // Get a mapping from physical addresses to virtual addresses
     char *virtual_base = (char *)mmap(NULL, LW_BRIDGE_SPAN, (PROT_READ | PROT_WRITE), MAP_SHARED, *fd, LW_BRIDGE_BASE);
-    if (virtual_base == MAP_FAILED) // check for errors
+    if (virtual_base == MAP_FAILED) // Check for errors in mmap
     {
         cout << "ERROR: mmap() failed..." << endl;
-        close(*fd); // close memory before exiting
-        exit(1);    // Returns 1 to the operating system;
+        close(*fd); // Close memory before exiting
+        exit(1);    // Exit the program with an error status
     }
-    return virtual_base;
+    return virtual_base; // Return the virtual base address
 }
 
 /**
@@ -84,39 +86,59 @@ char *Initialize(int *fd)
  */
 void Finalize(char *pBase, int fd)
 {
+    // Unmap the memory-mapped I/O
     if (munmap(pBase, LW_BRIDGE_SPAN) != 0)
     {
+        // Print an error message if munmap fails
         cout << "ERROR: munmap() failed..." << endl;
-        exit(1);
+        exit(1); // Exit the program with an error status
     }
-    close(fd); // close memory
+    close(fd); // Close the file descriptor for memory
 }
 
 int ReadAllSwitches(char *pBase)
 {
+    // Read the state of all switches (only the lower 10 bits) from the switch register
     return RegisterRead(pBase, SW_BASE) & 0x3FF;
 }
 
 int Read1Switch(char *pBase, int switchNum)
 {
+    // Read the state of all switches, shift right by switchNum, and mask with 1 to get the state of the specific switch
     return (ReadAllSwitches(pBase) >> switchNum) & 1;
 }
 
 void WriteAllLeds(char *pBase, int value)
 {
-    RegisterWrite(pBase, LEDR_BASE, value & 0x3ff);
+    // Write the lower 10 bits of 'value' to the LED register
+    RegisterWrite(pBase, LEDR_BASE, value & 0x3FF);
 }
 
+/**
+ * @brief Sets the state of a specific LED.
+ *
+ * This function modifies the state of a single LED specified by the ledNum parameter.
+ * It reads the current state of all LEDs, modifies the state of the specified LED,
+ * and writes the new state back to the LED register.
+ *
+ * @param pBase Pointer to the base address of the memory-mapped I/O.
+ * @param ledNum The number of the LED to modify (0-9).
+ * @param state The desired state of the LED (true for on, false for off).
+ */
 void Write1Led(char *pBase, int ledNum, bool state)
 {
+    // Read the current state of all LEDs (only the lower 10 bits)
     int curLeds = RegisterRead(pBase, LEDR_BASE) & 0x3FF;
-    int mask = -1 ^ (1 << ledNum); // 1111011111
+
+    // Create a mask with 0 at the position ledNum and 1s elsewhere
+    int mask = -1 ^ (1 << ledNum);
+
+    // Update the LED state: clear the bit at ledNum and set it to the desired state
     curLeds = (curLeds & mask) | (state << ledNum);
+
+    // Write the updated LED states back to the hardware
     WriteAllLeds(pBase, curLeds);
 }
-
-// User Added Functions
-// Secton 4 - Interfacing with Push Buttons
 
 /**
  * @brief Reads the state of push buttons and returns the corresponding button index.
@@ -130,21 +152,21 @@ void Write1Led(char *pBase, int ledNum, bool state)
  */
 int PushButtonGet(char *pBase)
 {
-    // cout << RegisterRead(pBase, KEY_BASE) << endl;
+    // Use a switch statement based on the push button register value
     switch (RegisterRead(pBase, KEY_BASE))
     {
-    case 0:
-        return -2;
-    case 1:
-        return 0;
-    case 2:
-        return 1;
-    case 4:
-        return 2;
-    case 8:
-        return 3;
-    default:
-        return -1;
+    case 0:        // No button pressed
+        return -2; // Return -2 when no button is pressed
+    case 1:        // Button 0 pressed
+        return 0;  // Return 0 when Button 0 is pressed
+    case 2:        // Button 1 pressed
+        return 1;  // Return 1 when Button 1 is pressed
+    case 4:        // Button 2 pressed
+        return 2;  // Return 2 when Button 2 is pressed
+    case 8:        // Button 3 pressed
+        return 3;  // Return 3 when Button 3 is pressed
+    default:       // Unexpected value / multiple buttons pressed
+        return -1; // Return -1 for any other unexpected value
     }
 }
 
@@ -186,22 +208,6 @@ void SevenSeg(char *pBase, int value, int displayNum)
 
     // Write the encoding to the specified 7-segment display
     RegisterWrite(pBase, offset, sevenSegDigits[value]);
-
-    // Display the value on the 7-segment display
-    // if (value >= 0 && value <= 9) {
-    //     RegisterWrite(pBase, HEX3_HEX0_BASE, sevenSegValues[value]);
-    // }
-    // else if (value > 9 && value <= 99) {
-    //     int tens = value / 10;
-    //     int ones = value % 10;
-    //     RegisterWrite(pBase, HEX3_HEX0_BASE, (sevenSegValues[ones] << 8) | sevenSegValues[tens]);
-    // }
-    // else if (value > 99 && value <= 999) {
-    //     int hundreds = value / 100;
-    //     int tens = (value / 10) % 10;
-    //     int ones = value % 10;
-    //     RegisterWrite(pBase, HEX3_HEX0_BASE, (sevenSegValues[ones] << 16) | (sevenSegValues[tens] << 8) | sevenSegValues[hundreds]);
-    // }
 }
 
 /**
@@ -342,24 +348,24 @@ int main()
                 break;
             }
         }
-
         if (counter > 1023)
         {
-            counter = 0;
+            counter = 0; // Reset counter to 0 if it exceeds 1023
         }
         else if (counter < 0)
         {
-            counter = 1023;
+            counter = 1023; // Set counter to 1023 if it is less than 0
         }
 
-        WriteAllLeds(pBase, counter);
+        WriteAllLeds(pBase, counter); // Update all LEDs based on the counter value
+
         // Display the digits on the 7-segment displays
-        numDigits = DigitDissect(counter, digits);
+        numDigits = DigitDissect(counter, digits); // Separate the counter into individual digits
 
         for (int i = 0; i < numDigits; i++)
         {
-            cout << "i: " << i << " numDigits: " << numDigits << " digit[i]: " << digits[i] << endl;
-            SevenSeg(pBase, digits[i], i);
+            cout << "i: " << i << " numDigits: " << numDigits << " digit[i]: " << digits[i] << endl; // Output debug information
+            SevenSeg(pBase, digits[i], i);                                                           // Display each digit on the corresponding 7-segment display
         }
     }
 
