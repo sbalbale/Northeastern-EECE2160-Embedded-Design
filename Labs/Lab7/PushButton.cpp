@@ -110,14 +110,17 @@ void Write1Led(char *pBase, int ledNum, bool state) {
 // User Added Functions
 // Secton 4 - Interfacing with Push Buttons
 int PushButtonGet(char *pBase) {
-	switch (RegisterRead(pBase, KEY_BASE) & 0xFF) {
-		case 0x1:
+	cout << RegisterRead(pBase, KEY_BASE) << endl;
+	switch (RegisterRead(pBase, KEY_BASE)) {
+		case 0:
+			return -2;
+		case 1:
 			return 0;
-		case 0x2:
+		case 2:
 			return 1;
-		case 0x4:
+		case 4:
 			return 2;
-		case 0x8:
+		case 8:
 			return 3;
 		default:
 			return -1;
@@ -131,22 +134,6 @@ int main()
 	// Initialize 
 	int fd; 
 	char *pBase = Initialize(&fd);
-	int swIdx = -1;
-	cout << "Enter the index of the switch to read (-1 for all): ";
-	cin >> swIdx;
-	cout << endl;
-	int val = 0;
-	if (swIdx == -1) {
-		val = ReadAllSwitches(pBase);		
-		WriteAllLeds(pBase, val);
-	} else if (swIdx >= 0 && swIdx <= 9) {
-		val = Read1Switch(pBase, swIdx);
-		Write1Led(pBase, swIdx, val);
-	}
-	// Done
-	Finalize(pBase, fd); 
-
-
 	
 	// User Added Functions
 	// Secton 4 - Interfacing with Push Buttons
@@ -154,8 +141,9 @@ int main()
 	WriteAllLeds(pBase, counter);
 
 	int lastButtonState = -1;
-
+	
 	while (true) {
+		cout << "lastButtonState: " << lastButtonState << " counter: " << counter << endl;
 		int buttonState = PushButtonGet(pBase);
 		if (buttonState != lastButtonState) {
 			lastButtonState = buttonState;
@@ -185,6 +173,6 @@ int main()
 		WriteAllLeds(pBase, counter);
 	}
 
-
+	Finalize(pBase, fd);
 
 }

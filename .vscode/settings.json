@@ -7,6 +7,13 @@
         "system_error": "cpp",
         "type_traits": "cpp",
         "xlocmon": "cpp",
-        "xtr1common": "cpp"
+        "xtr1common": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "format": "cpp",
+        "xstring": "cpp",
+        "initializer_list": "cpp",
+        "utility": "cpp",
+        "vector": "cpp"
     }
 }
