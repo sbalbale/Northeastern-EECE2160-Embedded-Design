@@ -1,0 +1,149 @@
+
+sean@Sean-Desktop MINGW64 ~/Documents/Northeastern-EECE2160-Embedded-Design (main)
+$  /usr/bin/env c:\\Users\\sean\\.vscode\\extensions\\ms-vscode.cpptools-1.23.1-win32-x64\\debugAdapters\\bin\\WindowsDebugLauncher.exe --stdin=Microsoft-MIEngine-In-zb02psp3.wuj --stdout=Microsoft-MIEngine-Out-nlftakfk.5zs --stderr=Microsoft-MIEngine-Error-ez53ye4c.e0f --pid=Microsoft-MIEngine-Pid-ofbvdoaw.pl1 --dbgExe=C:\\msys64\\ucrt64\\bin\\gdb.exe --interpreter=mi 
+Number of Records to read? 10
+
+Original Records:
+
+Car Records:
+------------
+2009, silver, Ford, Expedition
+2015, blue, Honda, Fit
+2013, yellow, Ford, Fusion
+1999, red, Jeep, Cherokee
+1996, gold, Mazda, Protogex
+2013, yellow, Ford, Fusion
+2016, green, Subaru, Outback
+2006, white, Toyota, Corolla
+1993, pink, Dodge, Neon
+2015, blue, Honda, Fit
+
+Sorted by Year:
+
+Car Records:
+------------
+2016, green, Subaru, Outback
+2015, blue, Honda, Fit
+2015, blue, Honda, Fit
+2013, yellow, Ford, Fusion
+2013, yellow, Ford, Fusion
+2009, silver, Ford, Expedition
+2006, white, Toyota, Corolla
+1999, red, Jeep, Cherokee
+1996, gold, Mazda, Protogex
+1993, pink, Dodge, Neon
+
+Sorted by Make:
+
+Car Records:
+------------
+1993, pink, Dodge, Neon
+2013, yellow, Ford, Fusion
+2013, yellow, Ford, Fusion
+2009, silver, Ford, Expedition
+2015, blue, Honda, Fit
+2015, blue, Honda, Fit
+1999, red, Jeep, Cherokee
+1996, gold, Mazda, Protogex
+2016, green, Subaru, Outback
+2006, white, Toyota, Corolla
+
+Duplicate Records:
+-----------------
+2013, yellow, Ford, Fusion
+2015, blue, Honda, Fit
+
+sean@Sean-Desktop MINGW64 ~/Documents/Northeastern-EECE2160-Embedded-Design (main)
+$  /usr/bin/env c:\\Users\\sean\\.vscode\\extensions\\ms-vscode.cpptools-1.23.1-win32-x64\\debugAdapters\\bin\\WindowsDebugLauncher.exe --stdin=Microsoft-MIEngine-In-pswziesc.jg0 --stdout=Microsoft-MIEngine-Out-5rrnab4j.oux --stderr=Microsoft-MIEngine-Error-ki3sqm1o.spd --pid=Microsoft-MIEngine-Pid-fmjqmiaf.raa --dbgExe=C:\\msys64\\ucrt64\\bin\\gdb.exe --interpreter=mi 
+Number of Records to read? 15
+
+Original Records:
+
+Car Records:
+------------
+2009, silver, Ford, Expedition
+2015, blue, Honda, Fit
+2013, yellow, Ford, Fusion
+1999, red, Jeep, Cherokee
+1996, gold, Mazda, Protogex
+2013, yellow, Ford, Fusion
+2016, green, Subaru, Outback
+2006, white, Toyota, Corolla
+1993, pink, Dodge, Neon
+2015, blue, Honda, Fit
+
+Sorted by Year:
+
+Car Records:
+------------
+2016, green, Subaru, Outback
+2015, blue, Honda, Fit
+2015, blue, Honda, Fit
+2013, yellow, Ford, Fusion
+2013, yellow, Ford, Fusion
+2009, silver, Ford, Expedition
+2006, white, Toyota, Corolla
+1999, red, Jeep, Cherokee
+1996, gold, Mazda, Protogex
+1993, pink, Dodge, Neon
+
+Sorted by Make:
+
+Car Records:
+------------
+1993, pink, Dodge, Neon
+2013, yellow, Ford, Fusion
+2013, yellow, Ford, Fusion
+2009, silver, Ford, Expedition
+2015, blue, Honda, Fit
+2015, blue, Honda, Fit
+1999, red, Jeep, Cherokee
+1996, gold, Mazda, Protogex
+2016, green, Subaru, Outback
+2006, white, Toyota, Corolla
+
+Duplicate Records:
+-----------------
+2013, yellow, Ford, Fusion
+2015, blue, Honda, Fit
+
+sean@Sean-Desktop MINGW64 ~/Documents/Northeastern-EECE2160-Embedded-Design (main)
+$  /usr/bin/env c:\\Users\\sean\\.vscode\\extensions\\ms-vscode.cpptools-1.23.1-win32-x64\\debugAdapters\\bin\\WindowsDebugLauncher.exe --stdin=Microsoft-MIEngine-In-ymi3ydxo.lwd --stdout=Microsoft-MIEngine-Out-qzrrq1of.lxg --stderr=Microsoft-MIEngine-Error-yu5qsizf.4a1 --pid=Microsoft-MIEngine-Pid-qf3stjj1.jak --dbgExe=C:\\msys64\\ucrt64\\bin\\gdb.exe --interpreter=mi 
+Number of Records to read? 5
+
+Original Records:
+
+Car Records:
+------------
+2009, silver, Ford, Expedition
+2015, blue, Honda, Fit
+2013, yellow, Ford, Fusion
+1999, red, Jeep, Cherokee
+1996, gold, Mazda, Protogex
+
+Sorted by Year:
+
+Car Records:
+------------
+2015, blue, Honda, Fit
+2013, yellow, Ford, Fusion
+2009, silver, Ford, Expedition
+1999, red, Jeep, Cherokee
+1996, gold, Mazda, Protogex
+
+Sorted by Make:
+
+Car Records:
+------------
+2013, yellow, Ford, Fusion
+2009, silver, Ford, Expedition
+2015, blue, Honda, Fit
+1999, red, Jeep, Cherokee
+1996, gold, Mazda, Protogex
+
+Duplicate Records:
+-----------------
+No duplicate records found.
+
+sean@Sean-Desktop MINGW64 ~/Documents/Northeastern-EECE2160-Embedded-Design (main)
+$
