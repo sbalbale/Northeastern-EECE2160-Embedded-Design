@@ -52,6 +52,9 @@ The following tools were used in this project:
 - [C++](https://learn.microsoft.com/en-us/cpp/cpp/?view=msvc-170)
 - [Clion](https://www.jetbrains.com/clion/)
 - [LaTex](https://www.latex-project.org/)
+- [VSCode](https://code.visualstudio.com/)
+- [Quartus Prime](https://fpgasoftware.intel.com/20.1/?edition=lite)
+- [DE1-SoC](https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=165&No=836)
 
 ## :white_check_mark: Requirements ##
 
