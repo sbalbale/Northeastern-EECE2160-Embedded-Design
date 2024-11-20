@@ -147,8 +147,8 @@ public:
 			WaitReady(); // Wait until the movement is complete
 
 			// Move the hips of TRIPOD1 forward and TRIPOD2 backward
-			MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base + 20, HipM_Base + 20, HipB_Base + 20);
-			MoveTripod(TRIPOD2, SpiderLeg::Hip, HipF_Base - 20, HipM_Base - 20, HipB_Base - 20);
+			MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base - 20, HipM_Base - 20, HipB_Base - 20);
+			MoveTripod(TRIPOD2, SpiderLeg::Hip, HipF_Base + 20, HipM_Base + 20, HipB_Base + 20);
 			WaitReady(); // Wait until the movement is complete
 
 			// Lower the knees of TRIPOD1
@@ -165,8 +165,8 @@ public:
 			WaitReady(); // Wait until the movement is complete
 
 			// Move the hips of TRIPOD1 backward and TRIPOD2 forward
-			MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base - 20, HipM_Base - 20, HipB_Base - 20);
-			MoveTripod(TRIPOD2, SpiderLeg::Hip, HipF_Base + 20, HipM_Base + 20, HipB_Base + 20);
+			MoveTripod(TRIPOD1, SpiderLeg::Hip, HipF_Base + 20, HipM_Base + 20, HipB_Base + 20);
+			MoveTripod(TRIPOD2, SpiderLeg::Hip, HipF_Base - 20, HipM_Base - 20, HipB_Base - 20);
 			WaitReady(); // Wait until the movement is complete
 
 			// Lower the knees of TRIPOD2
